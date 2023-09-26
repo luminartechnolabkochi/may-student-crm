@@ -1,0 +1,12 @@
+git init  =>initializing git 
+
+git status => liat all untracked files
+
+git add -A  => addimg all untrcake dfiles into staging area
+
+
+git commit -m "your message" => addig staged files to local repository
+
+git push -u branch_name
+
+git clone "path" => remote repo exact copy
