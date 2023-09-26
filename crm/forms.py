@@ -2,6 +2,18 @@
 from django import forms
 from crm.models import Students
 
+from django.contrib.auth.models import User
+
+
+class RegistrationForm(forms.ModelForm):
+
+    class Meta:
+        model=User
+        fields=["first_name","last_name","email","username","password"]
+
+
+
+
 
 class StudentCreateForm(forms.ModelForm):
     class Meta:
@@ -12,8 +24,9 @@ class StudentCreateForm(forms.ModelForm):
             "name":forms.TextInput(attrs={"class":"form-control"}),
             "email":forms.EmailInput(attrs={"class":"form-control"}),
             "phone":forms.TextInput(attrs={"class":"form-control"}),
-            "address":forms.Textarea(attrs={"class":"form-control"}),
-            "gender":forms.Select(attrs={"class":"form-select"})
+            "address":forms.Textarea(attrs={"class":"form-control","rows":3}),
+            "gender":forms.Select(attrs={"class":"form-select"}),
+
             
         }
 

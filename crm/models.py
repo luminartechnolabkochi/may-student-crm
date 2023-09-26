@@ -7,6 +7,7 @@ class Students(models.Model):
     email=models.EmailField()
     phone=models.CharField(max_length=200)
     address=models.CharField(max_length=300)
+    image=models.ImageField(upload_to="images",null=True)
     options=(
         ("male","male"),
         ("female","female"),

@@ -11,7 +11,7 @@ class StudentCreateView(View):
         return render(request,"student_add.html",{"form":form})
     
     def post(self,request,*args,**kwargs):
-        form=StudentCreateForm(request.POST)
+        form=StudentCreateForm(request.POST,files=request.FILES)
         if form.is_valid():
             form.save()
             print("saved")
@@ -44,7 +44,7 @@ class SytudentUpdateView(View):
     def post(self,request,*args,**kwargs):
         id=kwargs.get("pk")
         obj=Students.objects.get(id=id)
-        form=StudentCreateForm(request.POST,instance=obj)
+        form=StudentCreateForm(request.POST,instance=obj,files=request.FILES)
         if form.is_valid():
             form.save()
             return redirect("stud-list")
