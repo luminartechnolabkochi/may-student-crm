@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from crm.views import StudentCreateView,StudentListView,StudentDetailView,SytudentUpdateView,StudentDeleteView
+from crm.views import StudentCreateView,StudentListView,StudentDetailView,SytudentUpdateView,StudentDeleteView,SignUpView,SignInView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +25,10 @@ urlpatterns = [
     path("students/all",StudentListView.as_view(),name="stud-list"),
     path("students/<int:pk>",StudentDetailView.as_view(),name="stud-detail"),
     path("students/<int:pk>/change",SytudentUpdateView.as_view(),name="stud-change"),
-    path("students/<int:pk>/remove",StudentDeleteView.as_view(),name="stud-delete")
+    path("students/<int:pk>/remove",StudentDeleteView.as_view(),name="stud-delete"),
+    path("signup",SignUpView.as_view(),name="register"),
+    path("signin",SignInView.as_view(),name="signin"),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
